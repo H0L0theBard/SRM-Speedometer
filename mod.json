@@ -1,0 +1,69 @@
+{
+	"Name": "SRM Speedometer",
+	"Description": "Speedrunning mod's speedometer",
+	"LoadPriority": 2,
+	"RequiredOnClient": false,
+	"Version": "1.0.0",
+	"ConVars": [
+		// Speedometer
+		{
+			"Name": "srm_enable_speedometer",
+			"DefaultValue": "1",
+			"Flags": 16777216
+		},
+		{
+			"Name": "srm_speedometer_unit",
+			"DefaultValue": "0",
+			"Flags": 16777216
+		},
+		{
+			"Name": "srm_speedometer_axismode",
+			"DefaultValue": "0",
+			"Flags": 16777216
+		},
+
+		// Speedometer Customization
+		{
+			"Name": "srm_speedometer_position_x",
+			"DefaultValue": "0.6",
+			"Flags": 16777216
+		},
+		{
+			"Name": "srm_speedometer_position_y",
+			"DefaultValue": "0.48",
+			"Flags": 16777216
+		},
+		{
+			"Name": "srm_speedometer_color_slow",
+			"DefaultValue": "1.0 1.0 1.0",
+			"Flags": 16777216
+		},
+		{
+			"Name": "srm_speedometer_color_fast",
+			"DefaultValue": "1.0 0.0 0.0",
+			"Flags": 16777216
+		},
+		{
+			"Name": "srm_speedometer_alpha",
+			"DefaultValue": "1.0",
+			"Flags": 16777216
+		}
+	],
+	
+	"Scripts": [
+		{
+			"Path": "srm_speedometer.nut",
+			"RunOn": "CLIENT && !MAP_mp_lobby",
+			"ClientCallback": {
+				"After": "SRM_Speedometer_Init"
+			}
+		},
+		{
+			"Path": "srm_menu_speedometer_settings.nut",
+			"RunOn": "UI",
+			"UICallback": {
+				"Before": "SRM_InitSpeedometerSettingsMenu"
+			}
+		}
+	]
+}
